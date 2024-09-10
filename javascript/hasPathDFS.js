@@ -19,16 +19,23 @@ const hasPathDFSIterative = (graph, src, dst) => {
 
 const hasPathDFSRecursive = (graph, src, dst) => {
   // code here
-  stack = [src];
-  if (src === dst) {
-    return true;
-  }
-  current = stack.pop();
-  for (let node of graph[current]) {
-    if (hasPathDFSRecursive(graph, node, dst)) {
+  // stack = [src];
+  // if (src === dst) {
+  //   return true;
+  // }
+  // current = stack.pop();
+  // for (let node of graph[current]) {
+  //   if (hasPathDFSRecursive(graph, node, dst)) {
+  //     return true;
+  //   }
+  //   stack.push(node);
+  // }
+  // return false;
+  if (src === dst) return true;
+  for (let node of graph[src]) {
+    if (hasPathDFSRecursive(graph, node, dst) === true) {
       return true;
     }
-    stack.push(node);
   }
   return false;
 };
