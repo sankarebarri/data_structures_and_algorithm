@@ -1,6 +1,7 @@
 const undirectedGraph = (edges, nodeA, nodeB) => {
+  const visited = new Set();
   const graph = buildGraph(edges);
-  return hasPath(graph, nodeA, nodeB, new Set());
+  return hasPath(graph, nodeA, nodeB, visited);
 };
 
 const hasPath = (graph, src, dst, visited) => {
@@ -37,7 +38,7 @@ const edges = [
   ["o", "n"],
 ];
 
-console.log(buildGraph(edges));
+// console.log(buildGraph(edges));
 const graph = buildGraph(edges);
-console.log(hasPath(graph, "i", "n", new Set()));
+console.log(hasPath(graph, "i", "n", visited)); // error
 console.log(hasPath(graph, "i", "l", new Set()));
