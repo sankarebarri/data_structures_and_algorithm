@@ -16,11 +16,9 @@ const explore = (graph, current, visited) => {
   if (visited.has(String(current))) return false;
   visited.add(String(current));
   //   console.log(visited);
-
   for (let neighbor of graph[current]) {
     explore(graph, neighbor, visited);
   }
-
   return true;
 };
 
